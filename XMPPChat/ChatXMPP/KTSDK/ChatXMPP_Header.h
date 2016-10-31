@@ -19,6 +19,6 @@
 #define KT_XMPPIP @"000.000.0.0"//主机IP
 #define KT_XMPPPort 5222 //主机端口
 
-#define KT_Message_Error_BeNil @"消息为空"
+#define KT_Message_Error_BeNil @"消息为空或不合法"
 
 #endif /* ChatXMPP_Header_h */

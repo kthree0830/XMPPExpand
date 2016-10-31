@@ -33,7 +33,7 @@ static NSString * STC_Jid = nil;
     
     if (Jid.length) {
         STC_Jid = Jid;
-        STC_Manager = [[NearChatManager alloc]init];
+        STC_Manager = [[self alloc]init];
     }else
     {
         //传入空字符串或长度为0的字符串时，认为当前没有正在通信的联系人

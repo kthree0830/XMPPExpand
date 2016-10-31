@@ -244,15 +244,26 @@ static KTXMPPManager * basisManager = nil;
 }
 #pragma mark -
 #pragma mark - private
+
+/**
+ 组建消息体
+
+ @param message 消息内容
+ @param messageType 消息类型
+ @return 调整后的消息内容
+ */
 - (NSString *)messageElmentWith:(id)message messageType:(KTTMessageType)messageType{
-    UIImage * image;//图片消息备用
+    /*
+        可在此方法中将消息的内容转换为所需要的类型，如均为string类型，具体类型可按具体项目情况更改
+     */
+    UIImage * image = nil;//图片消息备用
     switch (messageType) {
         case KTTTextMessage:
             return (NSString *)message;
             break;
         case KTTImageMessage:
             image = (UIImage *)message;
-            return [self imageMessageChangeWithImage:image];
+            return [Photo image2String:image];
             break;
         case KTTVoiceeMessage:
             return nil;
@@ -457,8 +468,8 @@ static KTXMPPManager * basisManager = nil;
                 
             }
             //回调方法
-            if ([self.delegate respondsToSelector:@selector(aloneLoginXMPP)]) {
-                [self.delegate aloneLoginXMPP];
+            if ([self.delegate respondsToSelector:@selector(aloneLoginXMPP:)]) {
+                [self.delegate aloneLoginXMPP:YES];
             }
         }
     }
@@ -471,6 +482,8 @@ static KTXMPPManager * basisManager = nil;
     [_xmppStream disconnect];
     //停止重连
     [_xmppReconnect setAutoReconnect:NO];
+    //清空其它设置
+    [NearChatManager revokeDefaultManager];
 }
 //发送离线状态
 - (void)goOffline
@@ -490,8 +503,4 @@ static KTXMPPManager * basisManager = nil;
 }
 #pragma mark - 
 #pragma mark - 辅助方法
-- (NSString *)imageMessageChangeWithImage:(UIImage *)image
-{
-    return [Photo image2String:image];//压缩并转成字符串
-}
 @end

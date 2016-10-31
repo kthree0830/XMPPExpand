@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 /**注册xmpp的结果*/
 - (void)registerXMPPRsult:(BOOL)ret;
 /**单点登陆*/
-- (void)aloneLoginXMPP;
+- (void)aloneLoginXMPP:(BOOL)ret;
 /**消息发送结果*/
 - (void)sendMessage:(XMPPMessage *)message result:(BOOL)result error:(NSString *)errorDescribe;
 /**接收消息*/
@@ -59,7 +59,14 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 - (void)setKTXMPPDelegate:(id<KTXMPPManagerDelegate>)delegate nowChatPerson:(NSString *)nowChatPerson;
 //获得消息记录
 - (NSArray *)XMPPMessageRecordWithJid:(NSString *)Jid;
-//发送消息
+/**
+ 发送消息
+
+ @param message 消息内容
+ @param jid 对方jid
+ @param isGroupChat 是否为群聊
+ @param messageType 消息类型
+ */
 - (void)sendMessage:(id)message toJid:(NSString *)jid isGroupChat:(BOOL)isGroupChat messageType:(KTTMessageType)messageType;
 @end
 
