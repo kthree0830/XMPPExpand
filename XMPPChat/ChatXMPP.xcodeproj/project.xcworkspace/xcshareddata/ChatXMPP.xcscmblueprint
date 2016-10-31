@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ABF52A5215A31AE195E170AFD60B99F4C1D56E0F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ABF52A5215A31AE195E170AFD60B99F4C1D56E0F" : 0,
+    "B988733099D5BDAF6853FB2A121A8396C047E9D2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C1368E39-A01F-448F-A7CA-53E2D7DC7F61",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ABF52A5215A31AE195E170AFD60B99F4C1D56E0F" : "KTXMPP\/",
+    "B988733099D5BDAF6853FB2A121A8396C047E9D2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ChatXMPP",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ChatXMPP\/ChatXMPP.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iOSDeveloperTeam\/KTXMPP.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ABF52A5215A31AE195E170AFD60B99F4C1D56E0F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kthree0830\/KQW.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B988733099D5BDAF6853FB2A121A8396C047E9D2"
+    }
+  ]
+}
