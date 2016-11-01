@@ -222,8 +222,8 @@ static KTXMPPManager * basisManager = nil;
     /*
      XMPP的消息发送：组成xml格式进行发送
      */
-    XMPPMessage * mes;
-    NSString * trueMessage;
+    XMPPMessage * mes = nil;
+    NSString * trueMessage = nil;
     if (!isGroupChat) {
         //单聊
         mes = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithUser:jid domain:KT_XMPPDomain resource:KT_XMPPResources]];
@@ -234,6 +234,7 @@ static KTXMPPManager * basisManager = nil;
             这种方法需要服务器安装broadcast插件
          */
         mes = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithUser:jid domain:KT_XMPPGroupDomain resource:KT_XMPPResources]];
+
     }
     trueMessage = [self messageElmentWith:message messageType:messageType];
     if (!trueMessage) {
@@ -389,6 +390,7 @@ static KTXMPPManager * basisManager = nil;
         [self.delegate sendMessage:message result:YES error:nil];
         //TODO:可优化，如果自己建立聊天记录本地数据库的话，可在此处完成聊天记录model模型的赋值
     }
+    //做最近聊天数据存储
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NearChatModel * model = [[NearChatModel alloc]init];
         model.chatPartnerJid = toJid;
@@ -429,6 +431,7 @@ static KTXMPPManager * basisManager = nil;
         [self.delegate receiveMessage:message];
         //TODO:可优化，如果自己建立聊天记录本地数据库的话，可在此处完成聊天记录model模型的赋值
     }
+    //做最近聊天数据存储
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NearChatModel * model = [[NearChatModel alloc]init];
         model.chatPartnerJid = fromJid;
