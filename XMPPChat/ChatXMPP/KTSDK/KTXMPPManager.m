@@ -227,10 +227,15 @@ static KTXMPPManager * basisManager = nil;
     if (!isGroupChat) {
         //单聊
         mes = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithUser:jid domain:KT_XMPPDomain resource:KT_XMPPResources]];
-        trueMessage = [self messageElmentWith:message messageType:messageType];
     }else{
-        
+        /*
+            XMPP的群聊用广播的形式完成，即 多个用户订阅同一个广播 当有人向这个广播发送消息时，所有的订阅者都会接收到消息，
+            以用来完成群聊的逻辑
+            这种方法需要服务器安装broadcast插件
+         */
+        mes = [XMPPMessage messageWithType:@"chat" to:[XMPPJID jidWithUser:jid domain:KT_XMPPGroupDomain resource:KT_XMPPResources]];
     }
+    trueMessage = [self messageElmentWith:message messageType:messageType];
     if (!trueMessage) {
         //如果是不合法的消息此处直接返回，不做发送
         if (self.delegate && [self.delegate respondsToSelector:@selector(sendMessage:result:error:)]) {

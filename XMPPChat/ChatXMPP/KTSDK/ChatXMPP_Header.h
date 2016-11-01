@@ -18,6 +18,8 @@
 #define KT_XMPPDomain @""//主机名
 #define KT_XMPPIP @"000.000.0.0"//主机IP
 #define KT_XMPPPort 5222 //主机端口
+//群聊主机名格式 KT_XMPPGroupDomain @"broadcast.主机名"
+#define KT_XMPPGroupDomain @""
 
 #define KT_Message_Error_BeNil @"消息为空或不合法"
 

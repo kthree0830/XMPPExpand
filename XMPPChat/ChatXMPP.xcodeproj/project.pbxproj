@@ -23,7 +23,6 @@
 		2963514B1C81BB8000B6F529 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 296351491C81BB8000B6F529 /* LaunchScreen.storyboard */; };
 		296351561C81BB8100B6F529 /* ChatXMPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 296351551C81BB8100B6F529 /* ChatXMPPTests.m */; };
 		296351611C81BB8100B6F529 /* ChatXMPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 296351601C81BB8100B6F529 /* ChatXMPPUITests.m */; };
-		296352C21C81BD5500B6F529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2963516F1C81BD5400B6F529 /* Assets.xcassets */; };
 		296352C31C81BD5500B6F529 /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 296351731C81BD5400B6F529 /* XMPPAnonymousAuthentication.m */; };
 		296352C41C81BD5500B6F529 /* XMPPDeprecatedDigestAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 296351761C81BD5400B6F529 /* XMPPDeprecatedDigestAuthentication.m */; };
 		296352C51C81BD5500B6F529 /* XMPPDeprecatedPlainAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 296351791C81BD5400B6F529 /* XMPPDeprecatedPlainAuthentication.m */; };
@@ -211,7 +210,6 @@
 		2963515C1C81BB8100B6F529 /* ChatXMPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXMPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		296351601C81BB8100B6F529 /* ChatXMPPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatXMPPUITests.m; sourceTree = "<group>"; };
 		296351621C81BB8100B6F529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2963516F1C81BD5400B6F529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		296351721C81BD5400B6F529 /* XMPPAnonymousAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPAnonymousAuthentication.h; sourceTree = "<group>"; };
 		296351731C81BD5400B6F529 /* XMPPAnonymousAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPAnonymousAuthentication.m; sourceTree = "<group>"; };
 		296351751C81BD5400B6F529 /* XMPPDeprecatedDigestAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPDeprecatedDigestAuthentication.h; sourceTree = "<group>"; };
@@ -638,7 +636,6 @@
 		2963516E1C81BCE600B6F529 /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
-				2963516F1C81BD5400B6F529 /* Assets.xcassets */,
 				296351701C81BD5400B6F529 /* Authentication */,
 				296351871C81BD5400B6F529 /* Base.lproj */,
 				2963518C1C81BD5400B6F529 /* Categories */,
@@ -1547,7 +1544,6 @@
 			files = (
 				2963514B1C81BB8000B6F529 /* LaunchScreen.storyboard in Resources */,
 				296351481C81BB8000B6F529 /* Assets.xcassets in Resources */,
-				296352C21C81BD5500B6F529 /* Assets.xcassets in Resources */,
 				296352CB1C81BD5500B6F529 /* Main.storyboard in Resources */,
 				296352CA1C81BD5500B6F529 /* LaunchScreen.storyboard in Resources */,
 				2963533E1C81BD5500B6F529 /* README.txt in Resources */,
