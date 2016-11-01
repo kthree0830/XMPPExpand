@@ -137,6 +137,8 @@
 		046878781DC87813005D72F6 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 046877F21DC87813005D72F6 /* DDXMLNode.m */; };
 		046878791DC87813005D72F6 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 046877F61DC87813005D72F6 /* build-libidn.sh */; };
 		0468787A1DC87813005D72F6 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046877F81DC87813005D72F6 /* libidn.a */; };
+		046878831DC87E0F005D72F6 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046878821DC87E0F005D72F6 /* BaseController.m */; };
+		046878861DC88061005D72F6 /* NavigationBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046878851DC88061005D72F6 /* NavigationBaseViewController.m */; };
 		049C53A61D24CE6D0001CE70 /* NearChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53A51D24CE6D0001CE70 /* NearChatManager.m */; };
 		049C53B21D24E7980001CE70 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53A91D24E7980001CE70 /* FMDatabase.m */; };
 		049C53B31D24E7980001CE70 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53AB1D24E7980001CE70 /* FMDatabaseAdditions.m */; };
@@ -444,6 +446,11 @@
 		046877F81DC87813005D72F6 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
 		046877F91DC87813005D72F6 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		046877FA1DC87813005D72F6 /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		046878811DC87E0F005D72F6 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		046878821DC87E0F005D72F6 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		046878841DC88061005D72F6 /* NavigationBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBaseViewController.h; sourceTree = "<group>"; };
+		046878851DC88061005D72F6 /* NavigationBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBaseViewController.m; sourceTree = "<group>"; };
+		046878891DC88A77005D72F6 /* CUIBaseDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUIBaseDef.h; sourceTree = "<group>"; };
 		049C53A41D24CE6D0001CE70 /* NearChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearChatManager.h; sourceTree = "<group>"; };
 		049C53A51D24CE6D0001CE70 /* NearChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearChatManager.m; sourceTree = "<group>"; };
 		049C53A81D24E7980001CE70 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -1308,6 +1315,73 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		0468787B1DC87D50005D72F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0468787C1DC87DC2005D72F6 /* Base */,
+				0468787D1DC87DC2005D72F6 /* Chat */,
+				0468787E1DC87DC2005D72F6 /* Circle */,
+				0468787F1DC87DC2005D72F6 /* Friend */,
+				046878801DC87DC2005D72F6 /* Setting */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0468787C1DC87DC2005D72F6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				046878811DC87E0F005D72F6 /* BaseController.h */,
+				046878821DC87E0F005D72F6 /* BaseController.m */,
+				046878841DC88061005D72F6 /* NavigationBaseViewController.h */,
+				046878851DC88061005D72F6 /* NavigationBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0468787D1DC87DC2005D72F6 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		0468787E1DC87DC2005D72F6 /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Circle;
+			sourceTree = "<group>";
+		};
+		0468787F1DC87DC2005D72F6 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		046878801DC87DC2005D72F6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		046878871DC88A1E005D72F6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				046878881DC88A1E005D72F6 /* Define */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		046878881DC88A1E005D72F6 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				046878891DC88A77005D72F6 /* CUIBaseDef.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
 		049C53A31D24CE5A0001CE70 /* NearChatManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1381,7 +1455,9 @@
 		2963513A1C81BB8000B6F529 /* ChatXMPP */ = {
 			isa = PBXGroup;
 			children = (
+				046878871DC88A1E005D72F6 /* Common */,
 				046876AD1DC87813005D72F6 /* XMPPFramework */,
+				0468787B1DC87D50005D72F6 /* Controller */,
 				2963513E1C81BB8000B6F529 /* AppDelegate.h */,
 				2963513F1C81BB8000B6F529 /* AppDelegate.m */,
 				296351471C81BB8000B6F529 /* Assets.xcassets */,
@@ -1576,6 +1652,7 @@
 				049C53B41D24E7980001CE70 /* FMDatabasePool.m in Sources */,
 				0468784A1DC87813005D72F6 /* XMPPCapabilities.xcdatamodel in Sources */,
 				046878301DC87813005D72F6 /* XMPPvCard.xcdatamodeld in Sources */,
+				046878861DC88061005D72F6 /* NavigationBaseViewController.m in Sources */,
 				296351431C81BB8000B6F529 /* ViewController.m in Sources */,
 				0468782F1DC87813005D72F6 /* XMPPRoom.m in Sources */,
 				296351401C81BB8000B6F529 /* AppDelegate.m in Sources */,
@@ -1631,6 +1708,7 @@
 				0468786E1DC87813005D72F6 /* DDASLLogger.m in Sources */,
 				046878141DC87813005D72F6 /* XMPPRoster.xcdatamodel in Sources */,
 				046878531DC87813005D72F6 /* XMPPMessageArchiving.m in Sources */,
+				046878831DC87E0F005D72F6 /* BaseController.m in Sources */,
 				0468781E1DC87813005D72F6 /* XMPPJabberRPCModule.m in Sources */,
 				0468784E1DC87813005D72F6 /* XMPPCapabilities.m in Sources */,
 				0468780D1DC87813005D72F6 /* XMPPBandwidthMonitor.m in Sources */,

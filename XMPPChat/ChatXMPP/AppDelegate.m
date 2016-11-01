@@ -7,16 +7,41 @@
 //
 
 #import "AppDelegate.h"
-
+#import "BaseController.h"
+#import "NavigationBaseViewController.h"
+#import "CUIBaseDef.h"
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+{
+    UITabBarController * _tabBarController;
+}
 
+/**
+ 准备tabBarController
+ */
+-(NSString *)prepareTabBarItemTitleWithTag:(NSInteger)tag{
+    return @[@"蓝信",@"通讯录",@"发现",@"我"][tag];
+}
+-(void)prepareTabBarContrller{
+    _tabBarController = [[UITabBarController alloc]init];
+    
+    for (int i = 0; i<4; i++) {
+        NavigationBaseViewController * navigationVC = [[NavigationBaseViewController alloc]initWithRootViewController:[[BaseController alloc]init]];
+        navigationVC.tabBarItem.title = [self prepareTabBarItemTitleWithTag:i];
+        _tabBarController.tabBar.selectedImageTintColor = BaseColor;
+        [_tabBarController addChildViewController:navigationVC];
+    }
+   
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self prepareTabBarContrller];
+    self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = _tabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
