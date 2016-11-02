@@ -8,7 +8,11 @@
 
 #ifndef ChatXMPP_Header_h
 #define ChatXMPP_Header_h
-
+/*
+    XMPP相关头文件 服务器配置 XMPP个人信息等
+ */
+//XMPP相关头文件
+#import "KTXMPPManager.h"
 //用户信息
 #define KT_XMPPJid @"KT_XMPPJid"
 #define KT_XMPPPassword @"KT_XMPPPassword"
@@ -24,4 +28,13 @@
 
 #define KT_Message_Error_BeNil @"消息为空或不合法"
 
+/*
+    枚举
+ */
+//xmpp连接服务器时所处状态
+typedef NS_ENUM(NSInteger) {
+    XMPPConnectStyleDefualt = 0 ,       //未连接
+    XMPPConnectStyleBeforeRegister,     //完成注册后
+    XMPPConnectStyleBeforeLogin         //完成登录后
+}XMPPConnectStyle;
 #endif /* ChatXMPP_Header_h */

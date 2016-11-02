@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 @protocol KTXMPPManagerDelegate <NSObject>
 /**登陆xmpp的结果*/
 - (void)loginXMPPRsult:(BOOL)ret;
-/**注册xmpp的结果*/
+/**注册xmpp的结果 成功并登录*/
 - (void)registerXMPPRsult:(BOOL)ret;
 /**单点登陆*/
 - (void)aloneLoginXMPP:(BOOL)ret;
@@ -49,15 +49,15 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 @property (nonatomic,readonly)NSManagedObjectContext * messageManageObjectContext;
 
 
-//单例
+/// 单例
 + (KTXMPPManager *)defaultManager;
-//登录
+/// 登录
 - (void)loginXMPP;
-//注册
+/// 注册
 - (void)registerXMPP;
-//设置代理和当前通信联系人
+/// 设置代理和当前通信联系人
 - (void)setKTXMPPDelegate:(id<KTXMPPManagerDelegate>)delegate nowChatPerson:(NSString *)nowChatPerson;
-//获得消息记录
+/// 获得消息记录
 - (NSArray *)XMPPMessageRecordWithJid:(NSString *)Jid;
 /**
  发送消息

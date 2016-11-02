@@ -8,8 +8,8 @@
 
 #import "BaseController.h"
 
-@interface BaseController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, weak)UITableView * baseTabelView;
+@interface BaseController ()
+
 @end
 
 @implementation BaseController

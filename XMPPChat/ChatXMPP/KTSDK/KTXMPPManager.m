@@ -28,7 +28,7 @@ static const NSString * defaultChatPerson = @"noChatPerson";
 @end
 @implementation KTXMPPManager
 {
-    NSUserDefaults * _userDefaults;
+    NSString * _myAccount;//用户账户
     NSString * _myPassword;//用户密码
     BOOL isRegister;//是否为注册
     
@@ -39,6 +39,8 @@ static const NSString * defaultChatPerson = @"noChatPerson";
 
     BOOL allowSelfSignedCertificates;
     BOOL allowSSLHostNameMismatch;
+    
+    XMPPConnectStyle connectStyle;
     
 }
 static KTXMPPManager * basisManager = nil;
@@ -54,7 +56,9 @@ static KTXMPPManager * basisManager = nil;
 -(instancetype)init
 {
     if (self = [super init]) {
-        [self setupStream];    }
+        [self setupStream];
+        connectStyle = XMPPConnectStyleDefualt;
+    }
     return self;
 }
 #pragma mark - 
@@ -77,17 +81,26 @@ static KTXMPPManager * basisManager = nil;
 }
 
 //连接
+- (BOOL)prepaerConnect
+{
+    if (connectStyle == XMPPConnectStyleDefualt) {
+        if (![_xmppStream isDisconnected])//如果xmpp未断开链接
+        {
+            return YES;
+        }
+    }else {
+        connectStyle = XMPPConnectStyleDefualt;
+    }
+    
+    return [self connect];
+}
 - (BOOL)connect
 {
-    if (![_xmppStream isDisconnected])//如果xmpp未断开链接
-    {
-        return YES;
-    }
-    //1.从userdefaults中提取账户和密码，所以在登录APP的时候需要记录用户的账户和密码
+    //从userdefaults中提取账户和密码，所以在登录APP的时候需要记录用户的账户和密码
     //xmpp中Jid为我们俗称的账号ID
-    NSString * myJid = [_userDefaults objectForKey:KT_XMPPJid];
+    NSString * myJid = UserDefaultObjectForKey(KT_XMPPJid);
     //密码
-    NSString * myPassword = [_userDefaults objectForKey:KT_XMPPPassword];
+    NSString * myPassword = UserDefaultObjectForKey(KT_XMPPPassword);
     if (0 == myJid.length || 0 == myPassword.length) {
         UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"警告" message:@"请检查是否输入了用户名或密码" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
@@ -118,16 +131,17 @@ static KTXMPPManager * basisManager = nil;
 {
     isRegister = NO;
     //先 连接服务器 再 认证用户米密码
-    [self connect];
+    [self prepaerConnect];
 }
 //注册
--(void)registerXMPP
+- (void)registerXMPP
 {
-/*
-    注册和登录的相同之处:两者都需要连接服务器
-            的不同之处:登录在连接成功后验证密码，而注册为注册用户
- */
+    /*
+        注册和登录的相同之处:两者都需要连接服务器
+                的不同之处:登录在连接成功后验证密码，而注册为注册用户
+     */
     isRegister = YES;
+    connectStyle = XMPPConnectStyleBeforeRegister;
     //先 连接服务器 再 注册用户密码
     [self connect];
 }
@@ -158,7 +172,7 @@ static KTXMPPManager * basisManager = nil;
         Jid = [Jid stringByAppendingFormat:@"@%@",KT_XMPPDomain];
     }
     //自己的JID
-    NSString * myJid = [_userDefaults objectForKey:KT_XMPPJid];
+    NSString * myJid = UserDefaultObjectForKey(KT_XMPPJid);
     
     //谓词搜索当前联系人的信息
     /*
@@ -285,7 +299,6 @@ static KTXMPPManager * basisManager = nil;
 -(void)setupStream
 {
     NSAssert(_xmppStream == nil, @"Method setupStream invoked multiple times");
-    _userDefaults = [NSUserDefaults standardUserDefaults];
     _xmppStream = [[XMPPStream alloc]init];
 #if !TARGET_IPHONE_SIMULATOR
     {
@@ -351,8 +364,11 @@ static KTXMPPManager * basisManager = nil;
     NSLog(@"完成认证，发送在线状态");
     //发送个人状态
     [self goOnline];
-    
-    if ([self.delegate respondsToSelector:@selector(loginXMPPRsult:)]) {
+    if (isRegister) {
+        if ([self.delegate respondsToSelector:@selector(registerXMPPRsult:)]) {
+            [self.delegate registerXMPPRsult:YES];
+        }
+    }else if ([self.delegate respondsToSelector:@selector(loginXMPPRsult:)]) {
         [self.delegate loginXMPPRsult:YES];
     }
 }
@@ -362,15 +378,35 @@ static KTXMPPManager * basisManager = nil;
     NSLog(@"认证错误");
     //断开连接
     [_xmppStream disconnect];
-    if ([self.delegate respondsToSelector:@selector(loginXMPPRsult:)]) {
+    if (isRegister) {
+        if ([self.delegate respondsToSelector:@selector(registerXMPPRsult:)]) {
+            [self.delegate registerXMPPRsult:NO];
+        }
+    }else if ([self.delegate respondsToSelector:@selector(loginXMPPRsult:)]) {
         [self.delegate loginXMPPRsult:NO];
     }
 }
 //注册成功
 - (void)xmppStreamDidRegister:(XMPPStream *)sender
 {
+    /*
+        注册成功后直接做登录动作
+     */
     if ([self.delegate respondsToSelector:@selector(registerXMPPRsult:)]) {
         [self.delegate registerXMPPRsult:YES];
+    }
+    //登录
+    /*
+        可根据项目自行修改，如：此处不登录，返回登录页登录
+        #warning 如果注册后不登录，返回登录页再登录时会造成无法登录的情况，原因 逻辑为：已经连接上服务器时便不可登录与注册
+                 所以退出时务必断开与服务器的连接
+                 本例中connectStyle便是为了这种情况出现的，当connectStyle为Default时，便会验证是否登录，
+     */
+
+    NSError *error = nil;
+    if (![_xmppStream authenticateWithPassword:_myPassword error:&error])
+    {
+        NSLog(@"Error authenticating: %@", error);
     }
 }
 //注册失败

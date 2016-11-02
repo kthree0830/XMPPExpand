@@ -146,6 +146,8 @@
 		049C53B51D24E7980001CE70 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53AF1D24E7980001CE70 /* FMDatabaseQueue.m */; };
 		049C53B61D24E7980001CE70 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53B11D24E7980001CE70 /* FMResultSet.m */; };
 		049C53B81D24E8350001CE70 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049C53B71D24E8350001CE70 /* libsqlite3.0.tbd */; };
+		04BEA1241DC986680088CEFD /* TabBarItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA1231DC986680088CEFD /* TabBarItemList.plist */; };
+		04BEA12E1DC9B3610088CEFD /* ChatMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA12D1DC9B3610088CEFD /* ChatMainController.m */; };
 		04E7AB6E1CA901B200FFF115 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E7AB6D1CA901B200FFF115 /* Photo.m */; };
 		2963513D1C81BB8000B6F529 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2963513C1C81BB8000B6F529 /* main.m */; };
 		296351401C81BB8000B6F529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2963513F1C81BB8000B6F529 /* AppDelegate.m */; };
@@ -464,6 +466,10 @@
 		049C53B01D24E7980001CE70 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		049C53B11D24E7980001CE70 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		049C53B71D24E8350001CE70 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		04BEA1231DC986680088CEFD /* TabBarItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarItemList.plist; sourceTree = "<group>"; };
+		04BEA12C1DC9B3610088CEFD /* ChatMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMainController.h; sourceTree = "<group>"; };
+		04BEA12D1DC9B3610088CEFD /* ChatMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMainController.m; sourceTree = "<group>"; };
+		04BEA1301DC9BF2A0088CEFD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		04E7AB6C1CA901B200FFF115 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		04E7AB6D1CA901B200FFF115 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		296351381C81BB8000B6F529 /* ChatXMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1334,6 +1340,7 @@
 				046878821DC87E0F005D72F6 /* BaseController.m */,
 				046878841DC88061005D72F6 /* NavigationBaseViewController.h */,
 				046878851DC88061005D72F6 /* NavigationBaseViewController.m */,
+				04BEA1231DC986680088CEFD /* TabBarItemList.plist */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1341,6 +1348,9 @@
 		0468787D1DC87DC2005D72F6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				04BEA1281DC9B3380088CEFD /* Controller */,
+				04BEA1291DC9B3380088CEFD /* Model */,
+				04BEA12A1DC9B3380088CEFD /* View */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1370,6 +1380,7 @@
 			isa = PBXGroup;
 			children = (
 				046878881DC88A1E005D72F6 /* Define */,
+				04BEA1301DC9BF2A0088CEFD /* PrefixHeader.pch */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1406,6 +1417,37 @@
 				049C53B11D24E7980001CE70 /* FMResultSet.m */,
 			);
 			path = FMDB;
+			sourceTree = "<group>";
+		};
+		04BEA1281DC9B3380088CEFD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA12B1DC9B34F0088CEFD /* ChatMain */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04BEA1291DC9B3380088CEFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04BEA12A1DC9B3380088CEFD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04BEA12B1DC9B34F0088CEFD /* ChatMain */ = {
+			isa = PBXGroup;
+			children = (
+				04BEA12C1DC9B3610088CEFD /* ChatMainController.h */,
+				04BEA12D1DC9B3610088CEFD /* ChatMainController.m */,
+			);
+			path = ChatMain;
 			sourceTree = "<group>";
 		};
 		04E7AB6A1CA901B200FFF115 /* 3rd */ = {
@@ -1617,6 +1659,7 @@
 				296351481C81BB8000B6F529 /* Assets.xcassets in Resources */,
 				046876AB1DC87805005D72F6 /* LaunchScreen.storyboard in Resources */,
 				046878741DC87813005D72F6 /* README.txt in Resources */,
+				04BEA1241DC986680088CEFD /* TabBarItemList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1719,6 +1762,7 @@
 				046878391DC87813005D72F6 /* XMPPvCardTempEmail.m in Sources */,
 				0468785C1DC87813005D72F6 /* XMPPAutoTime.m in Sources */,
 				04E7AB6E1CA901B200FFF115 /* Photo.m in Sources */,
+				04BEA12E1DC9B3610088CEFD /* ChatMainController.m in Sources */,
 				046878631DC87813005D72F6 /* XMPPMessage+XEP_0308.m in Sources */,
 				046878331DC87813005D72F6 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				0468781F1DC87813005D72F6 /* XMPPIQ+LastActivity.m in Sources */,
@@ -1917,6 +1961,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Common/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = ChatXMPP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1935,6 +1981,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Common/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = ChatXMPP/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

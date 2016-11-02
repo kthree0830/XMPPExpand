@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>select</key>
+		<string>tabbar_s_chat</string>
+		<key>normal</key>
+		<string>tabbar_n_chat</string>
+		<key>name</key>
+		<string>蓝讯</string>
+	</dict>
+	<dict>
+		<key>select</key>
+		<string>tabbar_s_friend</string>
+		<key>normal</key>
+		<string>tabbar_n_friend</string>
+		<key>name</key>
+		<string>联系人</string>
+	</dict>
+	<dict>
+		<key>select</key>
+		<string>tabbar_s_circle</string>
+		<key>normal</key>
+		<string>tabbar_n_circle</string>
+		<key>name</key>
+		<string>听说</string>
+	</dict>
+	<dict>
+		<key>select</key>
+		<string>tabbar_s_me</string>
+		<key>normal</key>
+		<string>tabbar_n_me</string>
+		<key>name</key>
+		<string>我的</string>
+	</dict>
+</array>
+</plist>

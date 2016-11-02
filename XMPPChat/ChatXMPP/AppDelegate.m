@@ -10,7 +10,8 @@
 #import "BaseController.h"
 #import "NavigationBaseViewController.h"
 #import "CUIBaseDef.h"
-@interface AppDelegate ()
+#import "ChatXMPP_Header.h"
+@interface AppDelegate ()<KTXMPPManagerDelegate>
 
 @end
 
@@ -22,15 +23,23 @@
 /**
  准备tabBarController
  */
--(NSString *)prepareTabBarItemTitleWithTag:(NSInteger)tag{
-    return @[@"蓝信",@"通讯录",@"发现",@"我"][tag];
+- (UITabBarItem *)prepareTabBarItemWithDic:(NSDictionary *)itemDic {
+    UITabBarItem * item = [[UITabBarItem alloc]init];
+    item.title = itemDic[TabBarItemName];
+    item.image = [UIImage imageNamed:itemDic[TabBarItemNormalImage]];
+//    item.selectedImage = [[UIImage imageNamed:itemDic[TabBarItemSelectImage]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:BaseColor} forState:UIControlStateSelected];
+    return item;
 }
--(void)prepareTabBarContrller{
+- (void)prepareTabBarContrller {
     _tabBarController = [[UITabBarController alloc]init];
+    //读取plist文件
+    NSString * path = [[NSBundle mainBundle]pathForResource:@"TabBarItemList.plist" ofType:nil];
+    NSArray * tabBarItemListArray = [NSArray arrayWithContentsOfFile:path];
     
     for (int i = 0; i<4; i++) {
         NavigationBaseViewController * navigationVC = [[NavigationBaseViewController alloc]initWithRootViewController:[[BaseController alloc]init]];
-        navigationVC.tabBarItem.title = [self prepareTabBarItemTitleWithTag:i];
+        navigationVC.tabBarItem = [self prepareTabBarItemWithDic:tabBarItemListArray[i]];
         _tabBarController.tabBar.selectedImageTintColor = BaseColor;
         [_tabBarController addChildViewController:navigationVC];
     }
@@ -42,6 +51,26 @@
     self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = _tabBarController;
     [self.window makeKeyAndVisible];
+    
+    /*
+        根据项目需求做引导页
+        根据项目需求做版本判断
+        根据项目需求做推送注册
+        根据项目需求做第三方登录，第三方分享等一系列的注册
+        根据项目需求做登录前的判断（第一次可做登录和注册等，并存储用户名、密码等，注册时同时注册XMPP）
+        根据项目需求做XMPP的登录
+     */
+    /*
+        本例中，模仿已使用APP后的二次使用（即非第一次使用）
+        设定：第一次登录和注册时 用户XMPP的 用户名，密码 使用NSUserDefault存储，分别对应KT_XMPPJid和KT_XMPPPassword
+        注册方法:  [[KTXMPPManager defaultManager]registerXMPP];
+     
+     */
+    //登录(登录和注册的方法应该放到相应的控制器中，而不是这里)
+    [KTXMPPManager defaultManager].delegate = self;
+    [[KTXMPPManager defaultManager]loginXMPP];
+    
+    
     return YES;
 }
 
@@ -65,6 +94,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+#pragma mark -KTXMPPManagerDelegate
+/**登陆xmpp的结果*/
+- (void)loginXMPPRsult:(BOOL)ret{
+
+}
+/**注册xmpp的结果 成功并登录*/
+- (void)registerXMPPRsult:(BOOL)ret {
+
+}
+/**单点登陆*/
+- (void)aloneLoginXMPP:(BOOL)ret{
+
 }
 
 @end
