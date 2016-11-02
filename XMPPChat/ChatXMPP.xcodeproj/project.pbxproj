@@ -147,7 +147,7 @@
 		049C53B61D24E7980001CE70 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 049C53B11D24E7980001CE70 /* FMResultSet.m */; };
 		049C53B81D24E8350001CE70 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 049C53B71D24E8350001CE70 /* libsqlite3.0.tbd */; };
 		04BEA1241DC986680088CEFD /* TabBarItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04BEA1231DC986680088CEFD /* TabBarItemList.plist */; };
-		04BEA12E1DC9B3610088CEFD /* ChatMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA12D1DC9B3610088CEFD /* ChatMainController.m */; };
+		04BEA1311DC9DC290088CEFD /* ChatMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BEA12D1DC9B3610088CEFD /* ChatMainController.m */; };
 		04E7AB6E1CA901B200FFF115 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E7AB6D1CA901B200FFF115 /* Photo.m */; };
 		2963513D1C81BB8000B6F529 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2963513C1C81BB8000B6F529 /* main.m */; };
 		296351401C81BB8000B6F529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2963513F1C81BB8000B6F529 /* AppDelegate.m */; };
@@ -1684,6 +1684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BEA1311DC9DC290088CEFD /* ChatMainController.m in Sources */,
 				046878701DC87813005D72F6 /* DDLog.m in Sources */,
 				046878291DC87813005D72F6 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				046878031DC87813005D72F6 /* NSNumber+XMPP.m in Sources */,
@@ -1762,7 +1763,6 @@
 				046878391DC87813005D72F6 /* XMPPvCardTempEmail.m in Sources */,
 				0468785C1DC87813005D72F6 /* XMPPAutoTime.m in Sources */,
 				04E7AB6E1CA901B200FFF115 /* Photo.m in Sources */,
-				04BEA12E1DC9B3610088CEFD /* ChatMainController.m in Sources */,
 				046878631DC87813005D72F6 /* XMPPMessage+XEP_0308.m in Sources */,
 				046878331DC87813005D72F6 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				0468781F1DC87813005D72F6 /* XMPPIQ+LastActivity.m in Sources */,

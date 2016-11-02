@@ -67,8 +67,8 @@
      
      */
     //登录(登录和注册的方法应该放到相应的控制器中，而不是这里)
-    [KTXMPPManager defaultManager].delegate = self;
-    [[KTXMPPManager defaultManager]loginXMPP];
+//    [KTXMPPManager defaultManager].delegate = self;
+//    [[KTXMPPManager defaultManager]loginXMPP];
     
     
     return YES;

@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //1.准备数据
+    //2.加载数据
+    //3.显示数据
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +26,6 @@
     
 }
 
-
+#pragma mark - tableViewDelegate && dataSoucre
 
 @end
