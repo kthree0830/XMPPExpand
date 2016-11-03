@@ -31,6 +31,9 @@
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName:BaseColor} forState:UIControlStateSelected];
     return item;
 }
+- (NSString *)prepareClassNameWithTag:(NSInteger)tag {
+    return @[@"ChatMainController"][tag];
+}
 - (void)prepareTabBarContrller {
     _tabBarController = [[UITabBarController alloc]init];
     //读取plist文件
@@ -38,8 +41,11 @@
     NSArray * tabBarItemListArray = [NSArray arrayWithContentsOfFile:path];
     
     for (int i = 0; i<4; i++) {
-        NavigationBaseViewController * navigationVC = [[NavigationBaseViewController alloc]initWithRootViewController:[[BaseController alloc]init]];
+        NavigationBaseViewController * navigationVC = [[NavigationBaseViewController alloc]initWithRootViewController:[[NSClassFromString([self prepareClassNameWithTag:0]) alloc]init]];
         navigationVC.tabBarItem = [self prepareTabBarItemWithDic:tabBarItemListArray[i]];
+        if (i == 0) {
+            [KTXMPPManager defaultManager].tabbarItem = navigationVC.tabBarItem;
+        }
         _tabBarController.tabBar.selectedImageTintColor = BaseColor;
         [_tabBarController addChildViewController:navigationVC];
     }
@@ -69,7 +75,10 @@
     //登录(登录和注册的方法应该放到相应的控制器中，而不是这里)
 //    [KTXMPPManager defaultManager].delegate = self;
 //    [[KTXMPPManager defaultManager]loginXMPP];
+    UserDefaultSetObjectForKey(@"test", KT_XMPPJid);
+    [NearChatManager defaultManagerWithJid:UserDefaultObjectForKey(KT_XMPPJid)];
     
+    [KTXMPPManager defaultManager].tabbarItem.badgeValue = [[NearChatManager defaultManager] findAllSign];
     
     return YES;
 }

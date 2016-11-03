@@ -478,6 +478,12 @@ static KTXMPPManager * basisManager = nil;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             //TODO:做一些其他操作，如刷新聊天记录页面
+            if (self.tabbarItem) {
+                self.tabbarItem.badgeValue = [[NearChatManager defaultManager] findAllSign];
+            }
+            if (self.delegate && [self.delegate respondsToSelector:@selector(receiveNewMessageOnChatMain)]) {
+                [self.delegate receiveNewMessageOnChatMain];
+            }
         });
     });
 

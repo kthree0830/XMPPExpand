@@ -63,7 +63,7 @@ static NSString * STC_Jid = nil;
     }else{
         [self p_UpdateNearChatModelWithModel:model];
     }}
-- (NSInteger)findAllSign {
+- (NSString *)findAllSign {
     [self p_OpenSqlite];
     NSString * findAllSignString = [NSString stringWithFormat:@"select *from '%@'",STC_Jid];
     FMResultSet * resultSet = [_fmdb executeQuery:findAllSignString];
@@ -72,7 +72,11 @@ static NSString * STC_Jid = nil;
         num += [resultSet intForColumn:@"chatSign"];
     }
     [self p_CloseSqlite];
-    return num;
+    if (num == 0) {
+        return nil;
+    }else {
+        return [NSString stringWithFormat:@"%ld",num];
+    }
 }
 - (void)updateSignToZeroWithJid:(NSString *)Jid {
     [self p_UpdateSignToZeroWithJid:Jid];

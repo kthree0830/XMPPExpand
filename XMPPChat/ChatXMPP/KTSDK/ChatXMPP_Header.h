@@ -13,6 +13,7 @@
  */
 //XMPP相关头文件
 #import "KTXMPPManager.h"
+#import "NearChatManager.h"
 //用户信息
 #define KT_XMPPJid @"KT_XMPPJid"
 #define KT_XMPPPassword @"KT_XMPPPassword"

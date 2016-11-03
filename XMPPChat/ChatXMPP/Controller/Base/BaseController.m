@@ -24,7 +24,6 @@
     UITableView * tabelView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tabelView.delegate = self;
     tabelView.dataSource = self;
-    tabelView.backgroundColor = [UIColor redColor];
     [self.view addSubview:tabelView];
     self.baseTabelView = tabelView;
 }

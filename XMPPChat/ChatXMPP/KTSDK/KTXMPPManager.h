@@ -40,6 +40,11 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 /**接收消息*/
 - (void)receiveMessage:(XMPPMessage *)message;
 
+/**
+ 当在ChatMainController时收到消息
+ */
+- (void)receiveNewMessageOnChatMain;
+
 @end
 
 
@@ -47,6 +52,7 @@ typedef NS_ENUM(NSUInteger,KTTMessageType) {
 @interface KTXMPPManager : NSObject
 @property (nonatomic,weak)id<KTXMPPManagerDelegate>delegate;
 @property (nonatomic,readonly)NSManagedObjectContext * messageManageObjectContext;
+@property (nonatomic,strong)UITabBarItem * tabbarItem;//角标
 
 
 /// 单例

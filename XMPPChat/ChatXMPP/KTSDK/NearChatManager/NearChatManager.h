@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger,KTTMessageReadType) {
 /**
  *  查询所有未读消息个数
  */
-- (NSInteger)findAllSign;
+- (NSString *)findAllSign;
 /**
  *  指定对象的未读消息清零
  */
