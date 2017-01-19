@@ -474,12 +474,12 @@
 		04E7AB6D1CA901B200FFF115 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		296351381C81BB8000B6F529 /* ChatXMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatXMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2963513C1C81BB8000B6F529 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2963513E1C81BB8000B6F529 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2963513F1C81BB8000B6F529 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2963513E1C81BB8000B6F529 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		2963513F1C81BB8000B6F529 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		296351411C81BB8000B6F529 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		296351421C81BB8000B6F529 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		296351471C81BB8000B6F529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2963514C1C81BB8000B6F529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		296351471C81BB8000B6F529 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		2963514C1C81BB8000B6F529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		296351511C81BB8100B6F529 /* ChatXMPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatXMPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		296351551C81BB8100B6F529 /* ChatXMPPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatXMPPTests.m; sourceTree = "<group>"; };
 		296351571C81BB8100B6F529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -528,6 +528,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0428776E1E30A39D00932A42 /* AppMain */ = {
+			isa = PBXGroup;
+			children = (
+				0428776F1E30A40300932A42 /* framework */,
+				2963513E1C81BB8000B6F529 /* AppDelegate.h */,
+				2963513F1C81BB8000B6F529 /* AppDelegate.m */,
+				296351471C81BB8000B6F529 /* Assets.xcassets */,
+				2963514C1C81BB8000B6F529 /* Info.plist */,
+			);
+			path = AppMain;
+			sourceTree = "<group>";
+		};
+		0428776F1E30A40300932A42 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+				296353491C81BE0300B6F529 /* CFNetwork.framework */,
+				2963534D1C81BE2300B6F529 /* QuartzCore.framework */,
+				2963534B1C81BE1300B6F529 /* Security.framework */,
+				296353471C81BDF700B6F529 /* libresolv.tbd */,
+				049C53B71D24E8350001CE70 /* libsqlite3.0.tbd */,
+				296353451C81BDD700B6F529 /* libxml2.tbd */,
+			);
+			path = framework;
+			sourceTree = "<group>";
+		};
 		046876A61DC87805005D72F6 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -1471,12 +1496,6 @@
 		2963512F1C81BB8000B6F529 = {
 			isa = PBXGroup;
 			children = (
-				296353491C81BE0300B6F529 /* CFNetwork.framework */,
-				2963534D1C81BE2300B6F529 /* QuartzCore.framework */,
-				2963534B1C81BE1300B6F529 /* Security.framework */,
-				296353471C81BDF700B6F529 /* libresolv.tbd */,
-				049C53B71D24E8350001CE70 /* libsqlite3.0.tbd */,
-				296353451C81BDD700B6F529 /* libxml2.tbd */,
 				2963513A1C81BB8000B6F529 /* ChatXMPP */,
 				296351541C81BB8100B6F529 /* ChatXMPPTests */,
 				2963515F1C81BB8100B6F529 /* ChatXMPPUITests */,
@@ -1497,13 +1516,10 @@
 		2963513A1C81BB8000B6F529 /* ChatXMPP */ = {
 			isa = PBXGroup;
 			children = (
+				0428776E1E30A39D00932A42 /* AppMain */,
 				046878871DC88A1E005D72F6 /* Common */,
 				046876AD1DC87813005D72F6 /* XMPPFramework */,
 				0468787B1DC87D50005D72F6 /* Controller */,
-				2963513E1C81BB8000B6F529 /* AppDelegate.h */,
-				2963513F1C81BB8000B6F529 /* AppDelegate.m */,
-				296351471C81BB8000B6F529 /* Assets.xcassets */,
-				2963514C1C81BB8000B6F529 /* Info.plist */,
 				2963534F1C81BFCB00B6F529 /* KTSDK */,
 				2963513B1C81BB8000B6F529 /* Supporting Files */,
 				296351411C81BB8000B6F529 /* ViewController.h */,
