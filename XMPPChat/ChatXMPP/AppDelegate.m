@@ -28,7 +28,8 @@
     item.title = itemDic[TabBarItemName];
     item.image = [UIImage imageNamed:itemDic[TabBarItemNormalImage]];
 //    item.selectedImage = [[UIImage imageNamed:itemDic[TabBarItemSelectImage]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:BaseColor} forState:UIControlStateSelected];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:BaseColor} forState:UIControlStateHighlighted];
+    [item setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
     return item;
 }
 - (NSString *)prepareClassNameWithTag:(NSInteger)tag {
